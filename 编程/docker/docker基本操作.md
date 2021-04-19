@@ -12,7 +12,9 @@ https://www.runoob.com/docker/docker-tutorial.html
 $ docker ps -a
 ```
 
-![image-20210406171935369](.\image\image-20210406171935369.png)
+
+![image-20210406171935369](./image/image-20210406171935369.png)
+
 
 2. 拷贝本地文件到容器
 
