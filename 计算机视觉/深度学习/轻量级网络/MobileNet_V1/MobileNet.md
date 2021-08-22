@@ -18,7 +18,7 @@ mobilenetV1由于实际提出时间比较早（2016.6），所以网络结构还
 
 深度可分离卷积就是将普通的卷积拆分为一个**深度卷积**和一个**逐点卷积**，将传统卷积核在通道维度上做的add操作摒弃，改为先对特征图每个通道单独做卷积，再用1x1x$C_{in}$的卷积核将这些单独的特征图做特征融合。
 
-![image-20210417193942371](./image/image-20210417193942371.png)
+![image-20210417193942371](image/image-20210417193942371.png)
 
 例如，对于一个12x12x3的特征图，
 
@@ -62,7 +62,7 @@ mobilenetV1由于实际提出时间比较早（2016.6），所以网络结构还
 
 Table 4展示了mobilenet和全卷积网络的性能对比，只低了1%的精度。
 
-![Table 4](./image/Table 4.png)
+![Table 4](image/Table 4.png)
 
 
 
@@ -70,13 +70,13 @@ Table 4展示了mobilenet和全卷积网络的性能对比，只低了1%的精�
 
 由于mobilenet V1提出比较早，所以结构上还是VGG式的直筒型。我们主要关注一下深度可分离模块即可。
 
-![Figure 3](./image/Figure 3.png)
+![Figure 3](image/Figure 3.png)
 
-![Table 1](./image/Table 1.png)
+![Table 1](image/Table 1.png)
 
 可以看到mobilenet V1主要的耗时和参数都在$1\times 1$的卷积核上。
 
-![Table 2](./image/Table 2.png)
+![Table 2](image/Table 2.png)
 
 
 
@@ -97,13 +97,13 @@ $$
 
 Table 5.展示了$\alpha=0.75$时，和相同参数/计算量的浅层网络的性能对比。可以看到裁剪通道比直接减少网络层效果更优。
 
-![Table 5](./image/Table 5.png)
+![Table 5](image/Table 5.png)
 
 
 
 Table 6.展示了在通道上不同裁剪力度下的精度损失情况。可以看到通道裁剪力度在0.5以上时，精度损失不严重，呈线性平缓下跌，但能极大减小计算量。裁剪力度在0.25时，精度会有有个突然下跌。
 
-![Table 6](./image/Table 6.png)
+![Table 6](image/Table 6.png)
 
 ![image-20210417210012987](./image/image-20210417210012987.png)
 
@@ -111,13 +111,13 @@ Table 6.展示了在通道上不同裁剪力度下的精度损失情况。可以
 
 Table 7.展示了不同输入尺寸下的精度损失情况。resize尺度在0.5以上时，其实精度损失不是很严重。
 
-![Table 7](./image/Table 7.png)
+![Table 7](image/Table 7.png)
 
 - [x] 以上在通道和空间维度上的裁剪精度损失情况和具体网络通道数和图片尺寸有关，和任务数据也有关，实验结果可以作为通用任务的参考，但也不能一概而论。
 
 ## 4. 性能比较
 
-![Table 8](./image/Table 8.png)
+![Table 8](image/Table 8.png)
 
 如表8所示，性能上略低于VGG-16，略高于Googlenet，但是在计算量上有着绝对的优势。
 
